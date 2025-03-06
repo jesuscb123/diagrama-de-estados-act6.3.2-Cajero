@@ -15,19 +15,31 @@ Diagrama de estados, que refleje los distintos estados y transiciones en los que
     validar_tarjeta --> solicita_pin: tarjeta correcta
     validar_tarjeta --> standby: tarjeta incorrecta.
     
-    solicita_pin --> realizar_transaccion: Pin correcto
-    solicita_pin --> solicita_pin: Pin incorrecto(intento < 3).
-    solicita_pin --> solicita_pin: pin incorrecto (3 intentos).
+    solicita_pin --> elegir_transaccion: Pin correcto
+    solicita_pin --> solicita_pin: Pin incorrecto(intento < 3)
+    solicita_pin --> solicita_pin: pin incorrecto (3 intentos)
     solicita_pin --> standby: ingreso mal el pin 3 veces.
     
-    realizar_transaccion --> elegir_transaccion: Usuario elige transacción.
-    elegir_transaccion --> realizar_transaccion: Ha elegido una transacción.
-    realizar_transaccion --> elegir_transaccion: Ha escodigo realizar otra transacción.
+    elegir_transaccion --> realizar_transaccion: Usuario elige una transaccion
+    realizar_transaccion --> elegir_transaccion: Ha elegido realizar otra transaccion
     realizar_transaccion --> standby: Ha elegido finalizar.
     @enduml
 
   ![image](https://github.com/user-attachments/assets/82576ba8-94a9-4cd6-9f4d-a19521ddd0a8)
 
 
+#### Interpretación del diagrama.
+- Siguiendo la lógica del cajero, por defecto, al iniciar, se encontrará en standby a la espera de que un usuario introduzca una tarjeta.
+
+- Si la tarjeta introducida no es válida, volverá a estar en standby a la espera de ingresar otra tarjeta.
+
+- Volverá a validar hasta que detecte una tarjeta válida. Cuando lo sea, solicitará un pin al usuario que debe ingresar.
+
+- Si el usuario introduce bien el pin, pasará a elegir una transacción. Si introduce mal el pin tendrá hasta 3 intentos para ingresarlo bien, lo cual volverá a pedir pin hasta 3 veces. 
+- Si el usuario ingresa mal el pin 3 veces, pasará a estar en standby el cajero.
+
+- Cuando el usuario elija una transacción, preguntará si quiere realizar otra o si quiere salir. 
+
+- Si elige hacer otra, volver a pedir una transacción, si elige salir, el cajero pasará a estar de nuevo en standby a la espera de otra tarjeta.
 
 
