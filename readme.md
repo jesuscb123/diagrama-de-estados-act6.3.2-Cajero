@@ -26,7 +26,7 @@ Diagrama de estados, que refleje los distintos estados y transiciones en los que
     realizar_transaccion --> standby: Ha elegido finalizar.
     @enduml
 
-    ![image](https://github.com/user-attachments/assets/82576ba8-94a9-4cd6-9f4d-a19521ddd0a8)
+  ![image](https://github.com/user-attachments/assets/82576ba8-94a9-4cd6-9f4d-a19521ddd0a8)
 
 
 
